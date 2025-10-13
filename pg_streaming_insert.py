@@ -1,14 +1,18 @@
-import os
 import psycopg2
 from faker import Faker
 import time
+from dotenv import load_dotenv
+import os
+
+# Load .env file
+load_dotenv()
  
 # Replace with your PostgreSQL credentials and database name
-db_host = os.environ['db_host_name']
-db_port = os.environ['db_port_number']
-db_user = os.environ['db_user_name']
-db_password = os.environ['db_password_value']
-db_name = os.environ['db_name_value']
+db_host = os.getenv('db_host_name')
+db_port = os.getenv('db_port_number')
+db_user = os.getenv('db_user_name')
+db_password = os.getenv('db_password_value')
+db_name = os.getenv('db_name_value')
  
 def insert_into_products(cursor, num_items):
     fake = Faker()

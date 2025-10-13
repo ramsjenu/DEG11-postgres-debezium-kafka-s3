@@ -1,0 +1,20 @@
+{
+  "name": "s3-sink-connector-products",
+  "config": {
+    "connector.class": "io.confluent.connect.s3.S3SinkConnector",
+    "tasks.max": "1",
+    "topics": "streaming.public.products",
+    "s3.region": "us-east-1",
+    "s3.bucket.name": "products-bronze",
+    "aws.access.key.id": "admin",
+    "aws.secret.access.key": "password",
+    "s3.endpoint": "http://minio:9000",
+    "store.url": "http://minio:9000",
+    "flush.size": "1",
+    "storage.class": "io.confluent.connect.s3.storage.S3Storage",
+    "format.class": "io.confluent.connect.s3.format.parquet.ParquetFormat",
+    "behavior.on.null.values": "IGNORE",
+    "schema.generator.class": "io.confluent.connect.storage.hive.schema.DefaultSchemaGenerator",
+    "aws.credentials.provider.class": "software.amazon.awssdk.auth.credentials.StaticCredentialsProvider"
+  }
+}
